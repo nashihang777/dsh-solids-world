@@ -104,7 +104,8 @@ if (spec === null) {
   console.error('FAIL: client.js did not call __ModuleLoader__.load')
   process.exit(1)
 }
-check('module id matches package name', spec.id === '@local/solids-world-harness', spec.id)
+const manifest = JSON.parse(readFileSync(path.join(packageRoot, 'package.json'), 'utf8'))
+check('module id matches package name', spec.id === manifest.name, `${spec.id} vs ${manifest.name}`)
 
 const factory = spec.factory
 const plugin = factory((id) => {

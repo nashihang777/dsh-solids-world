@@ -1,11 +1,36 @@
 {
-  "name": "@local/solids-world-harness",
+  "name": "@nashihang777/dsh-solids-world",
   "version": "1.0.0",
-  "private": true,
-  "type": "module",
   "description": "An interactive 3D atlas of solid-state and atomic physics for DeepSeek Harness.",
-  "keywords": ["deepseek-harness", "dsh-plugin", "solid-state-physics", "crystal", "3d", "atlas"],
   "license": "MIT",
+  "author": "世界航海",
+  "keywords": [
+    "deepseek-harness",
+    "dsh-plugin",
+    "solid-state-physics",
+    "atomic-physics",
+    "crystal-structure",
+    "bravais-lattice",
+    "orbital",
+    "symmetry",
+    "threejs",
+    "3d-atlas"
+  ],
+  "homepage": "https://github.com/nashihang777/dsh-solids-world#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nashihang777/dsh-solids-world.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nashihang777/dsh-solids-world/issues"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
   "exports": {
     ".": "./index.js",
     "./client": "./client.js",
@@ -19,6 +44,7 @@
     "locale/*.json",
     "icon.svg",
     "README.md",
+    "CHANGELOG.md",
     "LICENSE",
     "NOTICE"
   ],

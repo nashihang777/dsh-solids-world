@@ -55,7 +55,9 @@ if (esbuild === null || postcss === null) {
   process.exit(1)
 }
 
-const PACKAGE_NAME = '@local/solids-world-harness'
+// The Client module id must equal the package name (the module loader keys on it),
+// so read it from the manifest instead of duplicating it here.
+const PACKAGE_NAME = JSON.parse(readFileSync(path.join(packageRoot, 'package.json'), 'utf8')).name
 const SCOPE = '.sw-atlas'
 
 /* ------------------------------------------------------------------ builders */
