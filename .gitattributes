@@ -1,0 +1,8 @@
+# Keep text files LF on every platform so the two hosts stay byte-identical.
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.ico binary
+*.woff2 binary

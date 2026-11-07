@@ -1,0 +1,113 @@
+/* Atlas-specific shell styles.
+ *
+ * `global.css` is the desktop stylesheet, scoped to `.sw-atlas` by the build
+ * script. Everything that has no desktop equivalent lives here: the panel
+ * container that replaces `body`, and the DOM overlay that replaces drei's
+ * <Html> anchors.
+ */
+
+.sw-atlas {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--line-body);
+}
+
+/* The desktop stylesheet anchored its layers to the window; inside the panel
+ * they belong to the panel, so absolute positioning keeps them out of the host
+ * shell's own overlays. */
+.sw-atlas .modal-overlay,
+.sw-atlas .cif-error-overlay,
+.sw-atlas .toast {
+  position: absolute;
+}
+
+.sw-atlas:focus {
+  outline: none;
+}
+
+.sw-atlas .app-root {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.sw-atlas .sw-stage-canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  cursor: grab;
+}
+
+.sw-atlas .sw-stage-canvas:active {
+  cursor: grabbing;
+}
+
+.sw-atlas .sw-stage-overlay {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.sw-atlas .sw-hotspot-anchor {
+  position: absolute;
+  left: 0;
+  top: 0;
+  will-change: transform;
+}
+
+.sw-atlas .sw-hotspot-anchor > .hotspot-ring-wrap {
+  transform: translate(-50%, -50%);
+}
+
+.sw-atlas .sw-stage-overlay .hotspot-ring {
+  pointer-events: auto;
+}
+
+.sw-atlas .sw-stage-overlay .atom-label {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.sw-atlas .topbar-cif {
+  margin-right: 8px;
+  white-space: nowrap;
+}
+
+.sw-atlas .topbar-help {
+  display: flex;
+  gap: 4px;
+  margin-left: 8px;
+}
+
+.sw-atlas .topbar-help button {
+  height: 26px;
+  min-width: 26px;
+  padding: 0 6px;
+  border: 1px solid var(--hairline);
+  border-radius: 6px;
+  background: none;
+  color: var(--muted);
+  font-size: var(--text-body);
+  cursor: pointer;
+}
+
+.sw-atlas .topbar-help button:hover,
+.sw-atlas .topbar-help button:focus-visible {
+  color: var(--ink);
+  border-color: var(--chalk);
+}

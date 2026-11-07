@@ -1,0 +1,36 @@
+solids-world for DeepSeek Harness
+=================================
+
+This package re-hosts the desktop application "solids-world" inside the DeepSeek
+Harness Web page.
+
+Upstream work
+-------------
+
+solids-world — 开源可交互的固体物理与原子物理 3D 图鉴
+Copyright © 2026 世界航海
+Licensed under the MIT License (see LICENSE).
+
+Reused from the upstream project, with modifications:
+
+  - src/atlas/**      renderer components, atlas data (zh/en), lessons, quizzes,
+                      i18n dictionaries, stylesheet, 3D builders, CIF-driven
+                      custom structures
+  - src/electron/**   CIF lexer/parser/space-group expansion/structure extraction,
+                      settings and notes schema
+
+Modifications: the stylesheet is scoped to `.sw-atlas`; the 3D stage is driven by
+plain three.js instead of @react-three/fiber, @react-three/drei and n8ao; the
+Vite-only builder registry is replaced by a generated static map; the Electron
+preload bridge is replaced by a page-side implementation; drag-and-drop and
+keyboard handling are scoped to the panel; a CIF file picker and a download-based
+notes export replace the native menu and save dialog.
+
+Original to this package
+------------------------
+
+  - index.js, client.js (build output), cordis.patch.yml, package.json
+  - src/client/**     slot registration, theme and locale inheritance, the page
+                      bridge, the panel shell styles
+  - scripts/build.mjs build pipeline
+  - icon.svg          original artwork

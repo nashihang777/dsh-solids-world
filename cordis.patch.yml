@@ -1,0 +1,3 @@
+- insert:
+    - id: solids-world
+      name: '@local/solids-world-harness'
